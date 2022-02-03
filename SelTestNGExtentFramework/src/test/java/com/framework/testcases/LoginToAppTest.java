@@ -6,7 +6,7 @@ import com.framework.pages.BaseClass;
 import com.framework.pages.HomePage;
 import com.framework.pages.LoginPage;
 
-public class loginTestToApp extends BaseClass{
+public class LoginToAppTest extends BaseClass{
     @Test
     public void loginApp() throws InterruptedException{
         
