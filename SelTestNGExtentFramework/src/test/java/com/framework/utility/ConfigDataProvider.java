@@ -1,5 +1,6 @@
 package com.framework.utility;
 
+import org.jetbrains.annotations.NotNull;
 import java.io.File;
 import java.io.FileInputStream;
 import java.util.Properties;
@@ -31,8 +32,15 @@ public class ConfigDataProvider {
 		
 	}
 	
-	public String getUrl() {
-		return pro.getProperty("qaUrl");
+	public String getUrl(@NotNull String env) {
+		if (env.equals("qa")) {
+			return pro.getProperty("qaUrl");
+		} else if (env.equals("uat")) {
+			return pro.getProperty("uatUrl");
+		}else{
+			System.out.println("Url not found");
+			return "URl not found";
+		}
 	}
 
 }

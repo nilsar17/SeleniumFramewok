@@ -49,6 +49,12 @@
 			<version>1.18.22</version>
 			<scope>provided</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.jetbrains</groupId>
+			<artifactId>annotations</artifactId>
+			<version>RELEASE</version>
+			<scope>compile</scope>
+		</dependency>
 	</dependencies>
 	<build>
 		<plugins>
@@ -58,8 +64,12 @@
 				<version>2.22.0</version>
 				<configuration>
 					<suiteXmlFiles>
-						<suiteXmlFile>XMLFiles/testng.xml</suiteXmlFile>
+						<suiteXmlFile>XMLFiles/${xmlFile}</suiteXmlFile>
 					</suiteXmlFiles>
+					<systemPropertyVariables>
+						<executionbrowser>${browser}</executionbrowser>
+						<environment>${env}</environment>
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 		</plugins>
