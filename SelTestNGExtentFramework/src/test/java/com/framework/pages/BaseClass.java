@@ -41,7 +41,7 @@ public class BaseClass {
 
 	//below is depricated method to pull data from config
 	public void setupTest() {
-		driver=BrowserFactory.startApplication( driver, config.getBrowser(),config.getUrl("qa"));
+		driver=BrowserFactory.startApplication( driver, config.getBrowser(),config.getUrl("uat"));
 	}
 	
 	@AfterClass
