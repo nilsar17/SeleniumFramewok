@@ -38,9 +38,11 @@ public class BaseClass {
 	public void setupTest(String browser,String env) {
 		driver=BrowserFactory.startApplication( driver, browser,config.getUrl(env));
 	}
-	//public void setupTest() {
-		//driver=BrowserFactory.startApplication( driver, config.getBrowser(),config.getUrl());
-	//}
+
+	//below is depricated method to pull data from config
+	public void setupTest() {
+		driver=BrowserFactory.startApplication( driver, config.getBrowser(),config.getUrl("qa"));
+	}
 	
 	@AfterClass
 	public void tearDown() {
