@@ -1,17 +1,25 @@
 package com.framework.utility;
 
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.rmi.Remote;
 import java.util.Set;
 
+import org.jetbrains.annotations.NotNull;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.remote.RemoteWebDriver;
 
 
 public class BrowserFactory {
 
-    public static WebDriver startApplication(WebDriver driver, String browserName, String appUrl){
+    public static WebDriver startApplication(WebDriver driver, String browserName, String appUrl) throws MalformedURLException {
         if(browserName.equals("Chrome")){
             System.setProperty("webdriver.chrome.driver","./Drivers/chromedriver");
-            driver = new ChromeDriver();
+            URL remoteUrl = new URL("http://localhost:4444/wd/hub");
+            ChromeOptions chromeOptions = new ChromeOptions();
+            driver = new RemoteWebDriver(remoteUrl, chromeOptions);
 
         }else if (browserName.equals("Firefox")){
             System.out.println("We do not support Firefox");

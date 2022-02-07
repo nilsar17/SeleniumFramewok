@@ -1,6 +1,7 @@
 package com.framework.pages;
 
 import java.io.File;
+import java.net.MalformedURLException;
 
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
@@ -35,12 +36,12 @@ public class BaseClass {
 	}
 	@Parameters({"browser","env"})
 	@BeforeClass
-	public void setupTest(String browser,String env) {
+	public void setupTest(String browser,String env) throws MalformedURLException {
 		driver=BrowserFactory.startApplication( driver, browser,config.getUrl(env));
 	}
 
 	//below is depricated method to pull data from config
-	public void setupTest() {
+	public void setupTest() throws MalformedURLException {
 		driver=BrowserFactory.startApplication( driver, config.getBrowser(),config.getUrl("uat"));
 	}
 	
